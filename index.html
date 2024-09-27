@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek kodam</title>
+    <title>Prank Website</title>
     <style>
         /* Gaya umum untuk body */
         body {
@@ -52,7 +52,7 @@
         .message {
             margin-top: 20px;
             font-size: 1.5em;
-            color: black;
+            color: red;
         }
     </style>
 </head>
@@ -65,17 +65,36 @@
     </div>
 
     <script>
+        const roasts = [
+            "Eh, ${name}, dengan nama kayak gitu, kamu pasti adalah kesalahan dalam desain!",
+            "Kamu itu seperti kesalahan ketik, ${name}. Gak ada yang mau liat!",
+            "${name}, nama kamu udah mengganggu semua orang di sekitarmu!",
+            "Kamu tahu, ${name}, otakmu kayak RAM yang penuh, selalu hang!",
+            "${name}, kalau kebodohan bisa diterjemahkan ke dalam nama, pasti itu nama kamu!",
+            "${name}, kamu mirip dengan virus komputer, mengganggu semua yang ada!",
+            "Kamu itu kayak software bajakan, ${name}. Selalu menyusahkan orang lain!",
+            "${name}, nama kamu seperti bug di aplikasi, bikin orang lain bingung!",
+            "${name}, jika bodoh bisa terbang, kamu udah terbang jauh ke luar angkasa!",
+            "${name}, kamu seperti lampu mati, cuma nyala saat ada orang yang mau menyakiti!"
+        ];
+
         document.getElementById('submitBtn').addEventListener('click', function() {
             const name = document.getElementById('nameInput').value;
 
             if (name) {
-                // Menampilkan pesan ejekan
-                document.getElementById('message').innerHTML = `${name}, nama kamu jelek!<br>Kamu ga bisa main minekrep!<br> huuu suka minta minta huuu dan beban team huu (canda akwokwowkwo) !`;
+                // Pilih roasts secara acak
+                const randomRoast = roasts[Math.floor(Math.random() * roasts.length)];
+                // Ganti ${name} dengan nama yang dimasukkan
+                const roastMessage = randomRoast.replace("${name}", name);
+                // Tampilkan pesan roasting
+                document.getElementById('message').innerHTML = roastMessage;
             } else {
                 // Pesan jika tidak ada nama yang dimasukkan
                 document.getElementById('message').innerHTML = 'Silakan masukkan nama kamu!';
             }
         });
     </script>
+</body>
+    </html>
 </body>
 </html>
